@@ -1,0 +1,6 @@
+*.save
+pkg
+runrake.sh
+spec/fixtures
+Gemfile
+Gemfile.lock
