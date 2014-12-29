@@ -35,7 +35,7 @@ class bitcoind (
     validate_array($rpcallowip)
   }
 
-  if $connect != 'not_set' and $allowip != 'not_set {
+  if $connect != 'not_set' and $allowip != 'not_set' {
     fail('Can only use one of $connect and $allowip')
   }
 
