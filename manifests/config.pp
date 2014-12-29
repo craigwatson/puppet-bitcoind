@@ -23,7 +23,7 @@ class bitcoind::config {
     owner   => $bitcoind::user_name,
     group   => $bitcoind::group_name,
     mode    => '0600',
-    content => template('bitcoin/bitcoin.conf.erb'),
+    content => template('bitcoind/bitcoin.conf.erb'),
     require => File["${bitcoind::user_home}/.bitcoin"],
     notify  => Service['bitcoind'],
   }
