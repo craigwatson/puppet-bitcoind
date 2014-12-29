@@ -66,8 +66,6 @@ class bitcoind (
   validate_bool($rpcssl)
   validate_bool($testnet)
 
-  if 
-
   # Include all subclasses
   include bitcoind::params
   include bitcoind::account
