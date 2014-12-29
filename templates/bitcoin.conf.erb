@@ -1,0 +1,45 @@
+############################################
+# WARNING:
+# Managed by puppet - DO NOT modify locally.
+############################################
+
+# Reference: https://en.bitcoin.it/wiki/Running_Bitcoin#Sample_Bitcoin.conf
+
+server=1
+allowreceivebyip=<%= scope.lookupvar('bitcoind::params::allowreceivebyip') %>
+testnet=<%= scope.lookupvar('bitcoind::params::testnet') %>
+maxconnections=<%= scope.lookupvar('bitcoind::maxconnections') %>
+gen=<%= scope.lookupvar('bitcoind::params::gen') %>
+keypool=<%= scope.lookupvar('bitcoind::maxconnections') %>
+paytxfee=<%= scope.lookupvar('bitcoind::paytxfee') %>
+rpcport=<%= scope.lookupvar('bitcoind::rpcport') %>
+rpcuser=<%= scope.lookupvar('bitcoind::rpcuser') %>
+rpcpassword=<%= scope.lookupvar('bitcoind::rpcpassword') %>
+rpctimeout=<%= scope.lookupvar('bitcoind::rpctimeout') %>
+rpcssl=<%= scope.lookupvar('bitcoind::params::rpcssl') %>
+<%- if scope.lookupvar('bitcoind::rpcssl') == true -%>
+rpcsslcertificatechainfile=<%= scope.lookupvar('bitcoind::rpcsslcertificatechainfile') %>
+rpcsslprivatekeyfile=<%= scope.lookupvar('bitcoind::rpcsslprivatekeyfile') %>
+rpcsslciphers=<%= scope.lookupvar('bitcoind::rpcsslciphers') %>
+<% end -%>
+<%- if scope.lookupvar('bitcoind::rpcconnect') != 'not_set' -%>
+rpcconnect=<%= scope.lookupvar('bitcoind::rpcconnect') %>
+<% end -%>
+<%- if scope.lookupvar('bitcoind::proxy') != 'not_set' -%>
+proxy=<%= scope.lookupvar('bitcoind::proxy') %>
+<% end -%>
+<%- if scope.lookupvar('bitcoind::rpcallowip') != 'not_set' -%>
+<%- scope.lookupvar('bitcoind::rpcallowip').each do |allow_ip| -%>
+rpcallowip=<%= allow_ip %>
+<%- end -%>
+<%- end -%>
+<%- if scope.lookupvar('bitcoind::addnode') != 'not_set' -%>
+<%- scope.lookupvar('bitcoind::addnode').each do |addnode_ip| -%>
+addnode=<%= addnode_ip %>
+<%- end -%>
+<%- end -%>
+<%- if scope.lookupvar('bitcoind::connect') != 'not_set' -%>
+<%- scope.lookupvar('bitcoind::connect').each do |connect_ip| -%>
+connect=<%= connect_ip %>
+<%- end -%>
+<%- end -%>
