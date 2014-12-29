@@ -18,7 +18,7 @@ class bitcoind::config {
     require => User['bitcoind'],
   }
 
-  file { "${bitcoind::user_home/.bitcoin/bitcoin.conf"
+  file { "${bitcoind::user_home}/.bitcoin/bitcoin.conf"
     ensure  => file,
     owner   => $bitcoind::user_name,
     group   => $bitcoind::group_name,
