@@ -14,7 +14,7 @@ class bitcoind (
   $rpcallowip                 = 'not_set',
   $rpcconnect                 = 'not_set',
   $rpcpassword                = 'EL5dW6NLpt3A8eeE2KBA9TcFyyVbNvhXfXNBpdB7Rcey',
-  $rpcport                    = '8332'
+  $rpcport                    = '8332',
   $rpcssl                     = false,
   $rpcsslcertificatechainfile = '',
   $rpcsslciphers              = 'TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!AH:!3DES:@STRENGTH',
