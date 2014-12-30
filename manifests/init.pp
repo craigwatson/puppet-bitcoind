@@ -2,35 +2,49 @@ class bitcoind (
   $addnode                    = 'not_set',
   $allowreceivebyip           = true,
   $bitcoind_cmd               = '/usr/bin/bitcoind',
-  $bitcoind_pidfile           = '/home/bitcoind/bitcoind.pid',
+  $bitcoind_datadir           = 'not_set',
+  $bitcoind_pidfile           = '/var/run/bitcoind.pid',
   $connect                    = 'not_set',
+  $disablewallet              = false,
   $gen                        = false,
   $group_name                 = 'bitcoind',
+  $install_gui                = false,
   $keypool                    = 100,
   $maxconnections             = 125,
   $paytxfee                   = '0.00',
   $proxy                      = 'not_set',
+  $server                     = true,
   $testnet                    = false,
+  $timeout                    = '5000',
+  $txindex                    = false,
   $rpcallowip                 = 'not_set',
   $rpcconnect                 = 'not_set',
   $rpcpassword                = 'EL5dW6NLpt3A8eeE2KBA9TcFyyVbNvhXfXNBpdB7Rcey',
   $rpcport                    = '8332',
   $rpcssl                     = false,
-  $rpcsslcertificatechainfile = '',
+  $rpcsslcertificatechainfile = 'server.cert',
   $rpcsslciphers              = 'TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!AH:!3DES:@STRENGTH',
-  $rpcsslprivatekeyfile       = '',
+  $rpcsslprivatekeyfile       = 'server.pem',
   $rpctimeout                 = '30',
   $rpcuser                    = 'bitcoind',
+  $upnp                       = true,
   $user_name                  = 'bitcoind',
   $user_home                  = '/home/bitcoind',
 ){
 
   # Hard-fail on anything that isn't Ubuntu
   if $::operatingsystem != 'Ubuntu' {
-    fail('Unsupported operatingsystem')
+    fail('Unsupported operating system')
   }
 
-  # Validate parameters
+  # Warn if install_gui and server are both true
+  if $install_gui == true and $server == true {
+    notify { 'bitcoind warning':
+      name     => 'install_gui and server are both set to true, sevrer will be disabled!',
+      withpath => true,
+    }
+  }
+
   if $rpcallowip != 'not_set' {
     validate_array($rpcallowip)
   }
@@ -39,32 +53,37 @@ class bitcoind (
     fail('Can only use one of $connect and $allowip')
   }
 
-  if $connect != not_set {
+  if $connect != 'not_set' {
     validate_array($connect)
   }
 
-  if $addnode != not_set {
+  if $addnode != 'not_set' {
     validate_array($addnode)
   }
 
+  validate_absolute_path($bitcoind_cmd)
+  validate_absolute_path($bitcoind_pidfile)
+  validate_absolute_path($user_home)
+
+  validate_bool($allowreceivebyip)
+  validate_bool($disablewallet)
+  validate_bool($gen)
+  validate_bool($install_gui)
+  validate_bool($testnet)
+  validate_bool($txindex)
+  validate_bool($rpcssl)
+  validate_bool($upnp)
+
+  validate_string($bitcoind_datadir)
   validate_string($group_name)
   validate_string($paytxfee)
-  validate_string($rpcconnect)
+  validate_string($proxy)
   validate_string($rpcpassword)
-  validate_string($rpcport)
-  validate_string($rpctimeout)
   validate_string($rpcsslcertificatechainfile)
   validate_string($rpcsslciphers)
   validate_string($rpcsslprivatekeyfile)
   validate_string($rpcuser)
   validate_string($user_name)
-  validate_absolute_path($bitcoind_cmd)
-  validate_absolute_path($bitcoind_pidfile)
-  validate_absolute_path($user_home)
-  validate_bool($allowreceivebyip)
-  validate_bool($gen)
-  validate_bool($rpcssl)
-  validate_bool($testnet)
 
   # Include all subclasses
   include bitcoind::params
