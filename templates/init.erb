@@ -7,19 +7,20 @@ description "bitcoind"
 
 start on (local-filesystems and net-device-up IFACE!=lo)
 stop on runlevel [!2345]
-oom never
-expect daemon
+oom score -500
+expect fork
 respawn
 respawn limit 10 60
 
 script
-user=<%= scope['bitcoind::user_name'] %>
-group=<%= scope['bitcoind::group_name'] %>
-home=<%= scope['bitcoind::user_home'] %>
-cmd=<%= scope['bitcoind::bitcoind_cmd'] %>
-pidfile=<%= scope['bitcoind::bitcoind_pidfile'] %>
+    user=<%= scope['bitcoind::user_name'] %>
+    group=<%= scope['bitcoind::group_name'] %>
+    home=<%= scope['bitcoind::user_home'] %>
+    cmd=<%= scope['bitcoind::bitcoind_cmd'] %>
+    pidfile=<%= scope['bitcoind::bitcoind_pidfile'] %>
+    nicelevel=<%= scope['bitcoind::bitcoind_nicelevel'] %>
 
-[[ -e $pidfile && ! -d "/proc/$(cat $pidfile)" ]] && rm $pidfile
-[[ -e $pidfile && "$(cat /proc/$(cat $pidfile)/cmdline)" != $cmd* ]] && rm $pidfile
-exec start-stop-daemon --start --chuid $user:$group --chdir $home --pidfile $pidfile --startas $cmd --background --make-pidfile -- -datadir=<%= scope['bitcoind::params::datadir'] %>
+    [[ -e $pidfile && ! -d "/proc/$(cat $pidfile)" ]] && rm $pidfile
+    [[ -e $pidfile && "$(cat /proc/$(cat $pidfile)/cmdline)" != $cmd* ]] && rm $pidfile
+    exec start-stop-daemon --start --chuid $user:$group --chdir $home --pidfile $pidfile --startas $cmd --background --make-pidfile --nicelevel $nicelevel -- -datadir=<%= scope['bitcoind::params::datadir'] %>
 end script

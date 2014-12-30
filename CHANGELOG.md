@@ -1,5 +1,16 @@
 # Change Log
 
+##1.1.0
+
+### 2014-12-30 - Minor feature update
+
+#### Class: `bitcoind`
+  * Added `bitcoind_nicelevel` parameter (type: int or string, deafult: 0) to be passed to the Upstart init script.
+
+#### Template: `init.erb`
+  * Replaced `expect daemon` with `expect fork` and `oom never` with `oom score -500` as per [this StackExchange answer](http://stackoverflow.com/questions/24163172/upstart-script-for-bitcoind-respawn-feature/25731881#25731881)
+  * Now uses the --nicelevel switch to pass the nice level of the bitcoind process.
+
 ##1.0.1
 
 ### 2014-12-30 - Bug fix

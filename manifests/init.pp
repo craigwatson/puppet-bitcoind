@@ -22,6 +22,7 @@ class bitcoind (
   $alertnotify                = 'not_set',
   $bitcoind_cmd               = '/usr/bin/bitcoind',
   $bitcoind_datadir           = 'not_set',
+  $bitcoind_nicelevel         = 0,
   $bitcoind_pidfile           = '/var/run/bitcoind.pid',
   $blocknotify                = 'not_set',
   $connect                    = 'not_set',
