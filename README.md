@@ -1,6 +1,6 @@
 # puppet-bitcoind
 
-[![Build Status](https://secure.travis-ci.org/craigwatson/puppet-bitcoindw.png?branch=master)](http://travis-ci.org/craigwatson/puppet-bitcoind)
+[![Build Status](https://secure.travis-ci.org/craigwatson/puppet-bitcoind.png?branch=master)](http://travis-ci.org/craigwatson/puppet-bitcoind)
 
 #### Table of Contents
 
@@ -62,7 +62,13 @@ To specify an RPC user/password:
 
 #### `bitcoind::install`
 
+  * Adds the Bitcoin Apt PPA to the system
+  * Installs the bitcoind package
+  * Optionally installs the bitcoin-qt package
+
 #### `bitcoind::params`
+
+  * Disables server if install_gui passed to the module
 
 #### `bitcoind::service`
 
