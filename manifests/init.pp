@@ -19,9 +19,11 @@
 class bitcoind (
   $addnode                    = 'not_set',
   $allowreceivebyip           = true,
+  $alertnotify                = 'not_set',
   $bitcoind_cmd               = '/usr/bin/bitcoind',
   $bitcoind_datadir           = 'not_set',
   $bitcoind_pidfile           = '/var/run/bitcoind.pid',
+  $blocknotify                = 'not_set',
   $connect                    = 'not_set',
   $disablewallet              = false,
   $gen                        = false,
@@ -92,7 +94,9 @@ class bitcoind (
   validate_bool($rpcssl)
   validate_bool($upnp)
 
+  validate_string($alertnotify)
   validate_string($bitcoind_datadir)
+  validate_string($blocknotify)
   validate_string($group_name)
   validate_string($paytxfee)
   validate_string($proxy)
