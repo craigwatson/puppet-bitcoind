@@ -43,7 +43,7 @@ To specify an RPC user/password, disable the wallet functionality, set an allowe
       disablewallet              => true,
       rpcallowip                 => ['123.456.789.100'],
       rpcuser                    => 'oliver'
-      rpcpassword                => 'youvegottopickapocketortwo,
+      rpcpassword                => 'youvegottopickapocketortwoboys',
       rpcssl                     => true,
       rpcsslcertificatechainfile => '/path/to/certificate.pem',
       rpcsslprivatekeyfile       => '/path/to/private.key',
