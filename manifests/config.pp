@@ -1,3 +1,20 @@
+# == Class: bitcoind::config
+#
+# This class handles the main configuration files for the module
+#
+# == Actions:
+#
+# * Creates the upstart script, data directory and bitcoind configuration file
+#
+# === Authors:
+#
+# Craig Watson <craig@cwatson.org>
+#
+# === Copyright:
+#
+# Copyright (C) 2014 Craig Watson
+# Published under the Apache License v2.0
+#
 class bitcoind::config {
 
   file { '/etc/init/bitcoind.conf':

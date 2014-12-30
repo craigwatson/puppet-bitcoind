@@ -1,3 +1,20 @@
+# == Class: bitcoind::params
+#
+# Non-passed class parameters
+#
+# == Actions:
+#
+# * Disables server if install_gui passed to the module
+#
+# === Authors:
+#
+# Craig Watson <craig@cwatson.org>
+#
+# === Copyright:
+#
+# Copyright (C) 2014 Craig Watson
+# Published under the Apache License v2.0
+#
 class bitcoind::params {
 
   if $bitcoind::bitcoind_datadir == 'not_set' {

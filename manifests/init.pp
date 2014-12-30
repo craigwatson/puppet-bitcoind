@@ -1,3 +1,21 @@
+# == Class: bitcoind
+#
+# Main class containing parameters and validation logic
+#
+# == Actions:
+#
+# * Fails on non-Ubuntu operating systems
+# * Validates passed parameters
+#
+# === Authors:
+#
+# Craig Watson <craig@cwatson.org>
+#
+# === Copyright:
+#
+# Copyright (C) 2014 Craig Watson
+# Published under the Apache License v2.0
+#
 class bitcoind (
   $addnode                    = 'not_set',
   $allowreceivebyip           = true,
