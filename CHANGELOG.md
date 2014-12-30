@@ -1,5 +1,12 @@
 # Change Log
 
+#1.0.1
+
+### 2014-12-30 - Bug fix
+
+#### Template: `bitcoin.conf.erb`
+  * Fixed typo
+
 ##1.0.0
 
 ### 2014-12-30 - Major improvements and polish
