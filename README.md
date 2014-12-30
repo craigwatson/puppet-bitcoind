@@ -37,11 +37,16 @@ To accept default class parameters (correct in most situations):
 
 ## Usage
 
-To specify an RPC user/password:
+To specify an RPC user/password, disable the wallet functionality, set an allowed RPC IP address and SSL key/cert:
 
     class { 'bitcoind':
-      rpcuser     => 'oliver',
-      rpcpassword => 'youvegottopickapocketortwo!',
+      disablewallet              => true,
+      rpcallowip                 => ['123.456.789.100'],
+      rpcuser                    => 'oliver'
+      rpcpassword                => 'youvegottopickapocketortwo,
+      rpcssl                     => true,
+      rpcsslcertificatechainfile => '/path/to/certificate.pem',
+      rpcsslprivatekeyfile       => '/path/to/private.key',
     }
 
 ## Reference
