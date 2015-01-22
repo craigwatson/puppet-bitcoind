@@ -1,5 +1,12 @@
 # Change Log
 
+##1.1.1
+
+### 2015-01-22 - Bug fix
+
+#### Template: `init.erb`
+  * Moving back up `expect daemon`
+
 ##1.1.0
 
 ### 2014-12-30 - Minor feature update
