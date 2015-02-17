@@ -51,6 +51,8 @@ class bitcoind (
   $upnp                       = true,
   $user_name                  = 'bitcoind',
   $user_home                  = '/home/bitcoind',
+  $service_ensure             = running,
+  $service_enable             = true,
 ){
 
   # Hard-fail on anything that isn't Ubuntu
