@@ -1,6 +1,7 @@
 # puppet-bitcoind
 
 [![Build Status](https://secure.travis-ci.org/craigwatson/puppet-bitcoind.png?branch=master)](http://travis-ci.org/craigwatson/puppet-bitcoind)
+[![Puppet Forge](http://img.shields.io/puppetforge/v/CraigWatson1987/bitcoinds.svg)](https://forge.puppetlabs.com/CraigWatson1987/bitcoind)
 
 #### Table of Contents
 
