@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.1.2
+
+### 2015-02-17 - Bug fix
+
+#### Class: `bitcoind`
+  * Added two missing parameters to control the `bitcoind` Service resource - thanks to [Nate Riffe](https://github.com/inkblot) for the [Pull Request](https://github.com/craigwatson/puppet-bitcoind/pull/1)!
+
 ##1.1.1
 
 ### 2015-01-22 - Bug fix
