@@ -32,7 +32,7 @@ class bitcoind (
   $install_gui                = false,
   $keypool                    = 100,
   $maxconnections             = 125,
-  $paytxfee                   = '0.00',
+  $paytxfee                   = '0.00001',
   $proxy                      = 'not_set',
   $server                     = true,
   $testnet                    = false,
