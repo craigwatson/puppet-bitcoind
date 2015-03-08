@@ -63,7 +63,7 @@ class bitcoind (
   # Warn if install_gui and server are both true
   if $install_gui == true and $server == true {
     notify { 'bitcoind warning':
-      name     => 'install_gui and server are both set to true, sevrer will be disabled!',
+      name     => 'install_gui and server are both set to true, server will be disabled!',
       withpath => true,
     }
   }
