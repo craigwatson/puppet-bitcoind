@@ -2,10 +2,13 @@
 
 ## 1.1.3
 
-## TBC - Bug fix (default update)
+## 2015-10-11 - Bug fix
 
 #### Class: `bitcoind`
   * Changing default value for `paytxfee` variable to `0.00001` (was `0.00`)
+
+#### Class: `bitcoind::install`
+  * Reworked logic to ensure that the PPA has been added and `apt-get update` has been run before installing packages
 
 ## 1.1.2
 
