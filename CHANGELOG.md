@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.1.3
+
+## TBC - Bug fix (default update)
+
+#### Class: `bitcoind`
+  * Changing default value for `paytxfee` variable to `0.00001` (was `0.00`)
+
 ## 1.1.2
 
 ### 2015-02-17 - Bug fix

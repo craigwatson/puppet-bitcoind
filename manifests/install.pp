@@ -19,7 +19,9 @@
 #
 class bitcoind::install {
 
-  apt::ppa { 'ppa:bitcoin/bitcoin': }
+  apt::ppa { 'ppa:bitcoin/bitcoin':
+    notify => Exec['apt_update'],
+  }
 
   package { 'bitcoind':
     ensure  => present,
