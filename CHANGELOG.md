@@ -1,5 +1,12 @@
 # Change Log
 
+# 1.1.4
+
+## 2016-01-05 - Bug fix
+
+### Template: `bitcoind.conf.erb`
+  * Corrected wrong variable for `keypool` parameter
+
 ## 1.1.3
 
 ## 2015-10-11 - Bug fix

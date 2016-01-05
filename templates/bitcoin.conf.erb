@@ -22,7 +22,7 @@ connect=<%= connect_ip %>
 <%- end -%>
 disablewallet=<%= scope['bitcoind::params::disablewallet'] %>
 gen=<%= scope['bitcoind::params::gen'] %>
-keypool=<%= scope['bitcoind::maxconnections'] %>
+keypool=<%= scope['bitcoind::keypool'] %>
 maxconnections=<%= scope['bitcoind::maxconnections'] %>
 paytxfee=<%= scope['bitcoind::paytxfee'] %>
 <%- if scope['bitcoind::proxy'] != 'not_set' -%>
