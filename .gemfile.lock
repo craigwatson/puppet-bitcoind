@@ -231,7 +231,6 @@ GEM
       unf_ext
     unf_ext (0.0.6)
     uuidtools (2.1.5)
-    vagrant-wrapper (1.2.1.1)
     websocket (1.2.1)
 
 PLATFORMS
@@ -250,4 +249,6 @@ DEPENDENCIES
   rspec-puppet!
   travis
   travis-lint
-  vagrant-wrapper
+
+BUNDLED WITH
+   1.10.6
