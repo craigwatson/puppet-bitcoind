@@ -23,7 +23,13 @@ connect=<%= connect_ip %>
 disablewallet=<%= scope['bitcoind::params::disablewallet'] %>
 gen=<%= scope['bitcoind::params::gen'] %>
 keypool=<%= scope['bitcoind::keypool'] %>
+<%- if scope['bitcoind::limitfreerelay'] != 15 -%>
+limitfreerelay=<%= scope['bitcoind::limitfreerelay'] %>
+<%- end -%>
 maxconnections=<%= scope['bitcoind::maxconnections'] %>
+<%- if scope['bitcoind::minrelaytxfee'] != 'not_set' -%>
+minrelaytxfee=<%= scope['bitcoind::minrelaytxfee'] %>
+<%- end -%>
 paytxfee=<%= scope['bitcoind::paytxfee'] %>
 <%- if scope['bitcoind::proxy'] != 'not_set' -%>
 proxy=<%= scope['bitcoind::proxy'] %>

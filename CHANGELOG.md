@@ -1,5 +1,15 @@
 # Change Log
 
+# 1.2.0
+
+## 2016-01-11 - Feature update
+
+### Class: `bitcoind`
+  * New parameters for `minrelaytxfee` and `limitfreerelay` options
+
+### Template: `bitcoind.conf.erb`
+  * Adding new parameters into template
+
 # 1.1.4
 
 ## 2016-01-05 - Bug fix

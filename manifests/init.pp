@@ -13,7 +13,7 @@
 #
 # === Copyright:
 #
-# Copyright (C) 2014 Craig Watson
+# Copyright (C) Craig Watson
 # Published under the Apache License v2.0
 #
 class bitcoind (
@@ -31,6 +31,8 @@ class bitcoind (
   $group_name                 = 'bitcoind',
   $install_gui                = false,
   $keypool                    = 100,
+  $limitfreerelay             = 15,
+  $minrelaytxfee              = 'not_set',
   $maxconnections             = 125,
   $paytxfee                   = '0.00001',
   $proxy                      = 'not_set',
@@ -101,6 +103,7 @@ class bitcoind (
   validate_string($bitcoind_datadir)
   validate_string($blocknotify)
   validate_string($group_name)
+  validate_string($minrelaytxfee)
   validate_string($paytxfee)
   validate_string($proxy)
   validate_string($rpcpassword)
