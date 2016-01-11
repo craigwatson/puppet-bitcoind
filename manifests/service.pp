@@ -12,7 +12,7 @@
 #
 # === Copyright:
 #
-# Copyright (C) 2014 Craig Watson
+# Copyright (C) Craig Watson
 # Published under the Apache License v2.0
 #
 class bitcoind::service {
