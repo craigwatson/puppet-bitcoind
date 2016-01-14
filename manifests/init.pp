@@ -34,7 +34,7 @@ class bitcoind (
   $limitfreerelay             = 15,
   $minrelaytxfee              = 'not_set',
   $maxconnections             = 125,
-  $paytxfee                   = '0.00001',
+  $paytxfee                   = '0.00005',
   $proxy                      = 'not_set',
   $server                     = true,
   $testnet                    = false,

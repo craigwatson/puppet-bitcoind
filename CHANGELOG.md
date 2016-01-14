@@ -1,5 +1,12 @@
 # Change Log
 
+# 1.2.1
+
+## 2016-01-14 - Bug fix
+
+### Class: `bitcoind`
+  * Changed the default value for the `paytxfee` parameter so `bitcoind` will start with default values
+
 # 1.2.0
 
 ## 2016-01-11 - Feature update
