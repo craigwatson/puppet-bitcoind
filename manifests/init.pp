@@ -27,6 +27,7 @@ class bitcoind (
   $blocknotify                = 'not_set',
   $connect                    = 'not_set',
   $disablewallet              = false,
+  $dbcache                    = 100,
   $gen                        = false,
   $group_name                 = 'bitcoind',
   $install_gui                = false,

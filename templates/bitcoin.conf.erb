@@ -3,56 +3,58 @@
 # Managed by puppet - DO NOT modify locally.
 ############################################
 
-<%- if scope['bitcoind::addnode'] != 'not_set' -%>
-<%- scope['bitcoind::addnode'].each do |addnode_ip| -%>
+<%- if scope['::bitcoind::addnode'] != 'not_set' -%>
+<%- scope['::bitcoind::addnode'].each do |addnode_ip| -%>
 addnode=<%= addnode_ip %>
 <%- end -%>
 <%- end -%>
-<%- if scope['bitcoind::alertnotify'] != 'not_set' -%>
-alertnotify=<%= scope['bitcoind::alertnotify'] %>
+<%- if scope['::bitcoind::alertnotify'] != 'not_set' -%>
+alertnotify=<%= scope['::bitcoind::alertnotify'] %>
 <%- end -%>
-allowreceivebyip=<%= scope['bitcoind::params::allowreceivebyip'] %>
-<%- if scope['bitcoind::blocknotify'] != 'not_set' -%>
-blocknotify=<%= scope['bitcoind::blocknotify'] %>
+allowreceivebyip=<%= scope['::bitcoind::params::allowreceivebyip'] %>
+<%- if scope['::bitcoind::blocknotify'] != 'not_set' -%>
+blocknotify=<%= scope['::bitcoind::blocknotify'] %>
 <%- end -%>
-<%- if scope['bitcoind::connect'] != 'not_set' -%>
-<%- scope['bitcoind::connect'].each do |connect_ip| -%>
+<%- if scope['::bitcoind::connect'] != 'not_set' -%>
+<%- scope['::bitcoind::connect'].each do |connect_ip| -%>
 connect=<%= connect_ip %>
 <%- end -%>
 <%- end -%>
-disablewallet=<%= scope['bitcoind::params::disablewallet'] %>
-gen=<%= scope['bitcoind::params::gen'] %>
-keypool=<%= scope['bitcoind::keypool'] %>
-<%- if scope['bitcoind::limitfreerelay'] != 15 -%>
-limitfreerelay=<%= scope['bitcoind::limitfreerelay'] %>
+disablewallet=<%= scope['::bitcoind::params::disablewallet'] %>
+dbcache=<%= scope['::bitcoind::dbcache'] %>
+gen=<%= scope['::bitcoind::params::gen'] %>
+keypool=<%= scope['::bitcoind::keypool'] %>
+<%- if scope['::bitcoind::limitfreerelay'] != 15 -%>
+limitfreerelay=<%= scope['::bitcoind::limitfreerelay'] %>
 <%- end -%>
-maxconnections=<%= scope['bitcoind::maxconnections'] %>
-<%- if scope['bitcoind::minrelaytxfee'] != 'not_set' -%>
-minrelaytxfee=<%= scope['bitcoind::minrelaytxfee'] %>
+maxconnections=<%= scope['::bitcoind::maxconnections'] %>
+<%- if scope['::bitcoind::minrelaytxfee'] != 'not_set' -%>
+minrelaytxfee=<%= scope['::bitcoind::minrelaytxfee'] %>
 <%- end -%>
-paytxfee=<%= scope['bitcoind::paytxfee'] %>
-<%- if scope['bitcoind::proxy'] != 'not_set' -%>
-proxy=<%= scope['bitcoind::proxy'] %>
+paytxfee=<%= scope['::bitcoind::paytxfee'] %>
+<%- if scope['::bitcoind::proxy'] != 'not_set' -%>
+proxy=<%= scope['::bitcoind::proxy'] %>
 <% end -%>
-<%- if scope['bitcoind::rpcallowip'] != 'not_set' -%>
-<%- scope['bitcoind::rpcallowip'].each do |allow_ip| -%>
+<%- if scope['::bitcoind::rpcallowip'] != 'not_set' -%>
+<%- scope['::bitcoind::rpcallowip'].each do |allow_ip| -%>
 rpcallowip=<%= allow_ip %>
 <%- end -%>
 <%- end -%>
-<%- if scope['bitcoind::rpcconnect'] != 'not_set' -%>
-rpcconnect=<%= scope['bitcoind::rpcconnect'] %>
+<%- if scope['::bitcoind::rpcconnect'] != 'not_set' -%>
+rpcconnect=<%= scope['::bitcoind::rpcconnect'] %>
 <% end -%>
-rpcpassword=<%= scope['bitcoind::rpcpassword'] %>
-rpcport=<%= scope['bitcoind::rpcport'] %>
-rpcssl=<%= scope['bitcoind::params::rpcssl'] %>
-<%- if scope['bitcoind::rpcssl'] == true -%>
-rpcsslcertificatechainfile=<%= scope['bitcoind::rpcsslcertificatechainfile'] %>
-rpcsslprivatekeyfile=<%= scope['bitcoind::rpcsslprivatekeyfile'] %>
-rpcsslciphers=<%= scope['bitcoind::rpcsslciphers'] %>
+rpcpassword=<%= scope['::bitcoind::rpcpassword'] %>
+rpcport=<%= scope['::bitcoind::rpcport'] %>
+rpcssl=<%= scope['::bitcoind::params::rpcssl'] %>
+<%- if scope['::bitcoind::rpcssl'] == true -%>
+rpcsslcertificatechainfile=<%= scope['::bitcoind::rpcsslcertificatechainfile'] %>
+rpcsslprivatekeyfile=<%= scope['::bitcoind::rpcsslprivatekeyfile'] %>
+rpcsslciphers=<%= scope['::bitcoind::rpcsslciphers'] %>
 <% end -%>
-rpctimeout=<%= scope['bitcoind::rpctimeout'] %>
-rpcuser=<%= scope['bitcoind::rpcuser'] %>
-server=<%= scope['bitcoind::params::server'] %>
-testnet=<%= scope['bitcoind::params::testnet'] %>
-timeout=<%= scope['bitcoind::timeout'] %>
-txindex=<%= scope['bitcoind::params::txindex'] %>
+rpctimeout=<%= scope['::bitcoind::rpctimeout'] %>
+rpcuser=<%= scope['::bitcoind::rpcuser'] %>
+server=<%= scope['::bitcoind::params::server'] %>
+testnet=<%= scope['::bitcoind::params::testnet'] %>
+timeout=<%= scope['::bitcoind::timeout'] %>
+txindex=<%= scope['::bitcoind::params::txindex'] %>
+upnp=<%= scope['::bitcoind::params::upnp'] %>

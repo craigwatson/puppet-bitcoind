@@ -1,5 +1,15 @@
 # Change Log
 
+# 1.3.0
+
+## 2016-02-16 - Feature update
+
+### Class: `bitcoind`
+  * New parameter for `dbcache` options
+
+### Template: `bitcoind.conf.erb`
+  * Adding new `dbcache` parameter, and adding existing (but so far unused!) `upnp` parameter
+
 # 1.2.1
 
 ## 2016-01-14 - Bug fix
