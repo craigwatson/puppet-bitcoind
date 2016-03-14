@@ -33,7 +33,7 @@ class bitcoind::install {
     command     => 'puppet resource service bitcoind ensure=stopped;puppet resource package bitcoind ensure=absent',
     path        => ['/bin/','/sbin/','/usr/bin/','/usr/sbin/','/usr/local/bin/','/opt/puppetlabs/bin/'],
     refreshonly => true,
-    before      => Package['bitcoind'],
+    before      => Exec['apt_update'],
   }
 
   package { 'bitcoind':
