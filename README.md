@@ -23,7 +23,11 @@ This Puppet module installs and configures the `bitcoind` daemon, and can option
 
 ### Bitcoin Classic
 
-This module can handle the installation of Bitcoin Classic. To use Bitcoin Classic over Bitcoin Core, simply set the `use_bitcoin_classic` parameter to `true` - the default is to install Bitcoin Classic.
+This module can handle the installation of Bitcoin Classic. To use Bitcoin Classic over Bitcoin Core, simply set the `use_bitcoin_classic` parameter to `true` - the default is to install Bitcoin **Core**.
+
+### Fork Migration
+
+You can also migrate from Bitcoin Core to Classic and vice versa using this module. To do this, the module stops the `bitcoind` service, and removes the `bitcoind` package, before placing the correct PPA and installing the `bitcoind` package again.
 
 ## Module Description
 
