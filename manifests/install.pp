@@ -4,7 +4,7 @@
 #
 # == Actions:
 #
-# * Adds the Bitcoin Apt PPA to the system
+# * Adds the Bitcoin or Bitcoin Classic Apt PPA to the system
 # * Installs the bitcoind package
 # * Optionally installs the bitcoin-qt package
 #
@@ -30,7 +30,7 @@ class bitcoind::install {
   }
 
   exec { 'puppet_uninstall_bitcoind':
-    command     => 'puppet resource package bitcoind ensure=absent',
+    command     => 'puppet resource service bitcoind ensure=stopped;puppet resource package bitcoind ensure=absent',
     path        => ['/bin/','/sbin/','/usr/bin/','/usr/sbin/','/usr/local/bin/','/opt/puppetlabs/bin/'],
     refreshonly => true,
     before      => Package['bitcoind'],
