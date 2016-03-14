@@ -1,5 +1,13 @@
 # Change Log
 
+# 1.4.2
+
+## 2016-03-14 - Documentation update
+
+### Readme
+  * Updated to reflect that Bitcoin **Core** is the default, not **Classic**.
+  * Added section on fork migration.
+
 # 1.4.1
 
 ## 2016-03-14 - Feature update
