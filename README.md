@@ -6,6 +6,7 @@
 #### Table of Contents
 
 1. [Overview - What is the puppet-bitcoind module?](#overview)
+  * [Bitcoin Classic](#bitcoin-classic)
 1. [Module Description - What does the module do?](#module-description)
 1. [Setup - The basics of getting started with puppet-bitcoind](#setup)
     * [What puppet-bitcoind affects](#what-puppet-bitcoind-affects)
@@ -20,9 +21,13 @@
 
 This Puppet module installs and configures the `bitcoind` daemon, and can optionally install the `bitcoin-qt` GUI - though this will disable the service/daemon.
 
+### Bitcoin Classic
+
+This module can handle the installation of Bitcoin Classic. To use Bitcoin Classic over Bitcoin Core, simply set the `use_bitcoin_classic` parameter to `true` - the default is to install Bitcoin Classic.
+
 ## Module Description
 
-  * Adds the Bitcoin PPA from `ppa:bitcoin/bitcoin` and installs `bitcoind`
+  * Adds the PPA for Bitcoin Core (`ppa:bitcoin/bitcoin`) or Classic (`ppa:bitcoinclassic/bitcoinclassic`) and installs `bitcoind`
   * Creates a (configurable) system user and group
   * Places an Upstart init script in `/etc/init`
   * Configures the `bitcoin.conf` configuration file
@@ -38,16 +43,14 @@ To accept default class parameters (correct in most situations):
 
 ## Usage
 
-To specify an RPC user/password, disable the wallet functionality, set an allowed RPC IP address and SSL key/cert:
+To use the Bitcoin Classic fork, specify an RPC user/password and disable wallet functionality:
 
     class { 'bitcoind':
       disablewallet              => true,
       rpcallowip                 => ['123.456.789.100'],
       rpcuser                    => 'oliver'
-      rpcpassword                => 'youvegottopickapocketortwoboys',
-      rpcssl                     => true,
-      rpcsslcertificatechainfile => '/path/to/certificate.pem',
-      rpcsslprivatekeyfile       => '/path/to/private.key',
+      rpcpassword                => 'youvegottopickapocketortwo',
+      use_bitcoin_classic        => true,
     }
 
 ## Reference
@@ -68,7 +71,7 @@ To specify an RPC user/password, disable the wallet functionality, set an allowe
 
 #### `bitcoind::install`
 
-  * Adds the Bitcoin Apt PPA to the system
+  * Adds the Bitcoin Core or Bitcoin Classic Apt PPA to the system
   * Installs the bitcoind package
   * Optionally installs the bitcoin-qt package
 
@@ -86,6 +89,6 @@ To specify an RPC user/password, disable the wallet functionality, set an allowe
 
 ## Development
 
-* Copyright (C) 2013 Craig Watson - <craig@cwatson.org>
+* Copyright (C) Craig Watson - <craig@cwatson.org>
 * Distributed under the terms of the Apache License v2.0 - see LICENSE file for details.
 * Further contributions and testing reports are extremely welcome - please submit a pull request or issue on [GitHub](https://github.com/craigwatson/puppet-bitcoind)

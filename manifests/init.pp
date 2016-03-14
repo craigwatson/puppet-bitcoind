@@ -72,11 +72,6 @@ class bitcoind (
     }
   }
 
-  # Error if the user wants to install bitcoin-qt and bitcoin classic together
-  if $use_bitcoin_classic == true and $install_gui == true {
-    fail('Cannot use Bitcoin Classic and Bitcoin-QT at the same time!')
-  }
-
   if $rpcallowip != 'not_set' {
     validate_array($rpcallowip)
   }
