@@ -31,6 +31,7 @@ class bitcoind::install {
 
   exec { 'puppet_uninstall_bitcoind':
     command     => 'puppet resource package bitcoind ensure=absent',
+    path        => ['/bin/','/sbin/','/usr/bin/','/usr/sbin/','/usr/local/bin/','/opt/puppetlabs/bin/'],
     refreshonly => true,
     before      => Package['bitcoind'],
   }
