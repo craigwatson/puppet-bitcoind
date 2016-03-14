@@ -1,5 +1,18 @@
 # Change Log
 
+# 1.4.0
+
+## TBC - Feature update
+
+### Class: `bitcoind`
+  * New parameter: `use_bitcoin_classic` (default: `false`)
+
+### Class: `bitcoind::params`
+  * New logic to handle purging Core/Classic packages
+
+### Class: `bitcoind::install`
+  * Conditionally adding the Bitcoin Classic PPA and purging the `bitcoind` package resource on-change
+
 # 1.3.0
 
 ## 2016-02-16 - Feature update

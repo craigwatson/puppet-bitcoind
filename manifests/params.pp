@@ -17,6 +17,14 @@
 #
 class bitcoind::params {
 
+  if $bitcoind::use_bitcoin_classic {
+    $core_ppa_ensure = absent
+    $classic_ppa_ensure = present
+  } else {
+    $core_ppa_ensure = present
+    $classic_ppa_ensure = absent
+  }
+
   if $bitcoind::bitcoind_datadir == 'not_set' {
     $datadir = "${bitcoind::user_home}/.bitcoin"
   } else {

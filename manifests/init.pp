@@ -52,6 +52,7 @@ class bitcoind (
   $rpctimeout                 = '30',
   $rpcuser                    = 'bitcoind',
   $upnp                       = true,
+  $use_bitcoin_classic        = false,
   $user_name                  = 'bitcoind',
   $user_home                  = '/home/bitcoind',
   $service_ensure             = running,
@@ -69,6 +70,11 @@ class bitcoind (
       name     => 'install_gui and server are both set to true, server will be disabled!',
       withpath => true,
     }
+  }
+
+  # Error if the user wants to install bitcoin-qt and bitcoin classic together
+  if $use_bitcoin_classic == true and $install_gui == true {
+    fail('Cannot use Bitcoin Classic and Bitcoin-QT at the same time!')
   }
 
   if $rpcallowip != 'not_set' {
@@ -99,6 +105,7 @@ class bitcoind (
   validate_bool($txindex)
   validate_bool($rpcssl)
   validate_bool($upnp)
+  validate_bool($use_bitcoin_classic)
 
   validate_string($alertnotify)
   validate_string($bitcoind_datadir)
@@ -115,17 +122,17 @@ class bitcoind (
   validate_string($user_name)
 
   # Include all subclasses
-  include bitcoind::params
-  include bitcoind::account
-  include bitcoind::install
-  include bitcoind::config
-  include bitcoind::service
+  include ::bitcoind::params
+  include ::bitcoind::account
+  include ::bitcoind::install
+  include ::bitcoind::config
+  include ::bitcoind::service
 
   # Class dependencies
-  Class['bitcoind::params'] ->
-  Class['bitcoind::account'] ->
-  Class['bitcoind::install'] ->
-  Class['bitcoind::config'] ->
-  Class['bitcoind::service']
+  Class['::bitcoind::params'] ->
+  Class['::bitcoind::account'] ->
+  Class['::bitcoind::install'] ->
+  Class['::bitcoind::config'] ->
+  Class['::bitcoind::service']
 
 }
