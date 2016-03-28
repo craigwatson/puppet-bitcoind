@@ -28,6 +28,9 @@ keypool=<%= scope['::bitcoind::keypool'] %>
 limitfreerelay=<%= scope['::bitcoind::limitfreerelay'] %>
 <%- end -%>
 maxconnections=<%= scope['::bitcoind::maxconnections'] %>
+<%- if scope['::bitcoind::maxuploadtarget'] != 'not_set' -%>
+maxuploadtarget=<%= scope['::bitcoind::maxuploadtarget'] %>
+<%- end -%>
 <%- if scope['::bitcoind::minrelaytxfee'] != 'not_set' -%>
 minrelaytxfee=<%= scope['::bitcoind::minrelaytxfee'] %>
 <%- end -%>

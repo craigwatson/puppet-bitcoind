@@ -1,5 +1,15 @@
 # Change Log
 
+# 1.5.0
+
+## 2016-03-27 - Feature Update
+
+### Class: `bitcoind`
+  * New parameter: `maxuploadtarget` (default: `'not_set'`)
+
+### Template: `bitcoind.conf.erb`
+    * Adding new `maxuploadtarget` parameter
+
 # 1.4.2
 
 ## 2016-03-14 - Documentation update
