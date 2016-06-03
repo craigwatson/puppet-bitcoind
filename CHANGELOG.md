@@ -1,5 +1,12 @@
 # Change Log
 
+# 1.6.2
+
+## 2016-06-03 - Bug Fix Release
+
+### Template: `bitcoind.conf.erb`
+  * Adding missing parameter assignment
+
 # 1.6.1
 
 ## 2016-06-03 - Bug Fix Release

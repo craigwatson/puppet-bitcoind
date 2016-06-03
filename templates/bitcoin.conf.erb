@@ -35,7 +35,7 @@ maxuploadtarget=<%= scope['::bitcoind::maxuploadtarget'] %>
 minrelaytxfee=<%= scope['::bitcoind::minrelaytxfee'] %>
 <%- end -%>
 paytxfee=<%= scope['::bitcoind::paytxfee'] %>
-peerbloomfilters<%= scope['::bitcoind::params::peerbloomfilters'] %>
+peerbloomfilters=<%= scope['::bitcoind::params::peerbloomfilters'] %>
 <%- if scope['::bitcoind::proxy'] != 'not_set' -%>
 proxy=<%= scope['::bitcoind::proxy'] %>
 <% end -%>
