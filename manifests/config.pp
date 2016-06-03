@@ -27,21 +27,21 @@ class bitcoind::config {
     notify  => Service['bitcoind'],
   }
 
-  file { $bitcoind::params::datadir:
+  file { $::bitcoind::params::datadir:
     ensure  => directory,
-    owner   => $bitcoind::user_name,
-    group   => $bitcoind::group_name,
+    owner   => $::bitcoind::user_name,
+    group   => $::bitcoind::group_name,
     mode    => '0755',
     require => User['bitcoind'],
   }
 
-  file { "${bitcoind::params::datadir}/bitcoin.conf":
+  file { "${::bitcoind::params::datadir}/bitcoin.conf":
     ensure  => file,
-    owner   => $bitcoind::user_name,
-    group   => $bitcoind::group_name,
+    owner   => $::bitcoind::user_name,
+    group   => $::bitcoind::group_name,
     mode    => '0600',
     content => template('bitcoind/bitcoin.conf.erb'),
-    require => File[$bitcoind::params::datadir],
+    require => File[$::bitcoind::params::datadir],
     notify  => Service['bitcoind'],
   }
 
