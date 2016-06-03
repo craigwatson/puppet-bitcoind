@@ -1,5 +1,18 @@
 # Change Log
 
+# 1.6.0
+
+## 2016-06-03 - Feature Update
+
+### Class: `bitcoind`
+  * New parameter: `peerbloomfilters` (default: `true`)
+
+### Class: `bitcoind::params`
+  * Handling translation of `bitcoind::peerbloomfilters` param
+
+### Template: `bitcoind.conf.erb`
+  * Adding `peerbloomfilters` parameter
+
 # 1.5.0
 
 ## 2016-03-27 - Feature Update

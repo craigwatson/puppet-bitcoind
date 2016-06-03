@@ -47,6 +47,12 @@ class bitcoind::params {
     $service_enable = true
   }
 
+  if $bitcoind::peerbloomfilters == true {
+    $peerbloomfilters = 1
+  } else {
+    $peerbloomfilters = 0
+  }
+
   if $bitcoind::disablewallet == true {
     $disablewallet = 1
   } else {

@@ -37,6 +37,7 @@ class bitcoind (
   $maxconnections             = 125,
   $maxuploadtarget            = 'not_set',
   $paytxfee                   = '0.00005',
+  $peerbloomfilters           = true,
   $proxy                      = 'not_set',
   $server                     = true,
   $testnet                    = false,
