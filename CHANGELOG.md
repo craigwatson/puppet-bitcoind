@@ -1,5 +1,15 @@
 # Change Log
 
+# 1.6.1
+
+## 2016-06-03 - Bug Fix Release
+
+### Template: `bitcoind.conf.erb`
+  * Correcting typo in template file
+
+### All Classes
+  * Updating to use explicit top-scope variables
+
 # 1.6.0
 
 ## 2016-06-03 - Feature Update

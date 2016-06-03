@@ -20,12 +20,12 @@
 class bitcoind::install {
 
   apt::ppa { 'ppa:bitcoinclassic/bitcoinclassic':
-    ensure => $bitcoind::params::classic_ppa_ensure,
+    ensure => $::bitcoind::params::classic_ppa_ensure,
     notify => Exec['puppet_uninstall_bitcoind'],
   }
 
   apt::ppa { 'ppa:bitcoin/bitcoin':
-    ensure => $bitcoind::params::core_ppa_ensure,
+    ensure => $::bitcoind::params::core_ppa_ensure,
     notify => Exec['puppet_uninstall_bitcoind'],
   }
 
@@ -41,7 +41,7 @@ class bitcoind::install {
     require => Exec['apt_update'],
   }
 
-  if $bitcoind::install_gui == true {
+  if $::bitcoind::install_gui == true {
     package { 'bitcoin-qt':
       ensure  => present,
       require => Exec['apt_update'],
