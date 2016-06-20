@@ -90,8 +90,11 @@ class bitcoind (
     validate_array($addnode)
   }
 
+  if $bitcoind_pidfile != 'not_set' {
+    validate_absolute_path($bitcoind_pidfile)
+  }
+
   validate_absolute_path($bitcoind_cmd)
-  validate_absolute_path($bitcoind_pidfile)
   validate_absolute_path($user_home)
 
   validate_bool($allowreceivebyip)
