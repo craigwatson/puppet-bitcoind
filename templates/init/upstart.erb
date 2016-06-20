@@ -17,7 +17,7 @@ script
     group=<%= scope['bitcoind::group_name'] %>
     home=<%= scope['bitcoind::user_home'] %>
     cmd=<%= scope['bitcoind::bitcoind_cmd'] %>
-    pidfile=<%= scope['bitcoind::bitcoind_pidfile'] %>
+    pidfile=<%= scope['bitcoind::params::pidfile'] %>
     nicelevel=<%= scope['bitcoind::bitcoind_nicelevel'] %>
 
     [[ -e $pidfile && ! -d "/proc/$(cat $pidfile)" ]] && rm $pidfile

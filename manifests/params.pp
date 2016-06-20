@@ -17,6 +17,12 @@
 #
 class bitcoind::params {
 
+  if $::bitcoind::bitcoind_pidfile != 'not_set' {
+    $pidfile = $::bitcoind::bitcoind_pidfile
+  } else {
+    $pidfile = "${::bitcoind::user_home}/bitcoind.pid"
+  }
+
   if (versioncmp($::lsbdistrelease,'16.04') >= 0) {
     $init_path     = '/etc/systemd/system/bitcoind.service'
     $init_template = 'systemd.erb'
