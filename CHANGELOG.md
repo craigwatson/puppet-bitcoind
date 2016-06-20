@@ -1,8 +1,11 @@
 # Change Log
 
-## 1.6.3
+## 2.0.0
 
-### 2016-06-20 - Feature Improvement Release
+### 2016-06-20 - Major Release to Support Ubuntu 16.04 LTS (Xenial)
+
+### Class: `bitcoind`
+  * Default parameter change - now placing pidfile
 
 ### Class: `bitcoind::params`
   * Adding logic to handle init script placement for Systemd/Upstart
