@@ -20,7 +20,7 @@ class bitcoind::params {
   if $::bitcoind::bitcoind_pidfile != 'not_set' {
     $pidfile = $::bitcoind::bitcoind_pidfile
   } else {
-    $pidfile = "${::bitcoind::user_home}/bitcoind.pid"
+    $pidfile = "${::bitcoind::user_home}/.bitcoind/bitcoind.pid"
   }
 
   if (versioncmp($::lsbdistrelease,'16.04') >= 0) {
