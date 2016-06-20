@@ -18,10 +18,10 @@
 class bitcoind::params {
 
   if (versioncmp($::lsbdistrelease,'16.04') >= 0) {
-    $init_path     = ''
+    $init_path     = '/etc/systemd/system/bitcoind.service'
     $init_template = 'systemd.erb'
   } else {
-    $init_path     = '/etc/init/bitcoind'
+    $init_path     = '/etc/init/bitcoind.conf'
     $init_template = 'upstart.erb'
   }
 
