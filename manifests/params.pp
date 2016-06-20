@@ -17,12 +17,6 @@
 #
 class bitcoind::params {
 
-  if $::bitcoind::bitcoind_pidfile != 'not_set' {
-    $pidfile = $::bitcoind::bitcoind_pidfile
-  } else {
-    $pidfile = "${::bitcoind::user_home}/.bitcoind/bitcoind.pid"
-  }
-
   if (versioncmp($::lsbdistrelease,'16.04') >= 0) {
     $init_path     = '/etc/systemd/system/bitcoind.service'
     $init_template = 'systemd.erb'
@@ -39,10 +33,16 @@ class bitcoind::params {
     $classic_ppa_ensure = absent
   }
 
-  if $::bitcoind::bitcoind_datadir == 'not_set' {
-    $datadir = "${bitcoind::user_home}/.bitcoin"
-  } else {
+  if $::bitcoind::bitcoind_datadir != 'not_set' {
     $datadir = $::bitcoind::bitcoind_datadir
+  } else {
+    $datadir = "${bitcoind::user_home}/.bitcoin"
+  }
+
+  if $::bitcoind::bitcoind_pidfile != 'not_set' {
+    $pidfile = $::bitcoind::bitcoind_pidfile
+  } else {
+    $pidfile = "${::bitcoind::params::datadir}/bitcoind.pid"
   }
 
   if $::bitcoind::install_gui == true {
