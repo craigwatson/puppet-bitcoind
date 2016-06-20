@@ -1,15 +1,27 @@
 # Change Log
 
-# 1.6.2
+## 1.6.3
 
-## 2016-06-03 - Bug Fix Release
+### 2016-06-20 - Feature Improvement Release
+
+### Class: `bitcoind::params`
+  * Adding logic to handle init script placement for Systemd/Upstart
+
+### Class: `bitcoind::config`
+  * Using `params` variables for init script
+
+### Class:
+
+## 1.6.2
+
+### 2016-06-03 - Bug Fix Release
 
 ### Template: `bitcoind.conf.erb`
   * Adding missing parameter assignment
 
-# 1.6.1
+## 1.6.1
 
-## 2016-06-03 - Bug Fix Release
+### 2016-06-03 - Bug Fix Release
 
 ### Template: `bitcoind.conf.erb`
   * Correcting typo in template file
@@ -17,9 +29,9 @@
 ### All Classes
   * Updating to use explicit top-scope variables
 
-# 1.6.0
+## 1.6.0
 
-## 2016-06-03 - Feature Update
+### 2016-06-03 - Feature Update
 
 ### Class: `bitcoind`
   * New parameter: `peerbloomfilters` (default: `true`)
@@ -30,9 +42,9 @@
 ### Template: `bitcoind.conf.erb`
   * Adding `peerbloomfilters` parameter
 
-# 1.5.0
+## 1.5.0
 
-## 2016-03-27 - Feature Update
+### 2016-03-27 - Feature Update
 
 ### Class: `bitcoind`
   * New parameter: `maxuploadtarget` (default: `'not_set'`)
@@ -40,17 +52,17 @@
 ### Template: `bitcoind.conf.erb`
     * Adding new `maxuploadtarget` parameter
 
-# 1.4.2
+## 1.4.2
 
-## 2016-03-14 - Documentation update
+### 2016-03-14 - Documentation update
 
 ### Readme
   * Updated to reflect that Bitcoin **Core** is the default, not **Classic**.
   * Added section on fork migration.
 
-# 1.4.1
+## 1.4.1
 
-## 2016-03-14 - Feature update
+### 2016-03-14 - Feature update
 
 ### Class: `bitcoind`
   * New parameter: `use_bitcoin_classic` (default: `false`)
@@ -59,9 +71,9 @@
   * Conditionally adding the Bitcoin Classic PPA
   * New `exec` resource to stop the `bitcoind` service and purge the `bitcoind` package _before_ the new PPA is activated - this allows in-place switching from Core to Classic, or vice versa.
 
-# 1.3.0
+## 1.3.0
 
-## 2016-02-16 - Feature update
+### 2016-02-16 - Feature update
 
 ### Class: `bitcoind`
   * New parameter for `dbcache` options
@@ -69,16 +81,16 @@
 ### Template: `bitcoind.conf.erb`
   * Adding new `dbcache` parameter, and adding existing (but so far unused!) `upnp` parameter
 
-# 1.2.1
+## 1.2.1
 
-## 2016-01-14 - Bug fix
+### 2016-01-14 - Bug fix
 
 ### Class: `bitcoind`
   * Changed the default value for the `paytxfee` parameter so `bitcoind` will start with default values
 
-# 1.2.0
+## 1.2.0
 
-## 2016-01-11 - Feature update
+### 2016-01-11 - Feature update
 
 ### Class: `bitcoind`
   * New parameters for `minrelaytxfee` and `limitfreerelay` options
@@ -86,16 +98,16 @@
 ### Template: `bitcoind.conf.erb`
   * Adding new parameters into template
 
-# 1.1.4
+## 1.1.4
 
-## 2016-01-05 - Bug fix
+### 2016-01-05 - Bug fix
 
 ### Template: `bitcoind.conf.erb`
   * Corrected wrong variable for `keypool` parameter
 
-## 1.1.3
+### 1.1.3
 
-## 2015-10-11 - Bug fix
+### 2015-10-11 - Bug fix
 
 #### Class: `bitcoind`
   * Changing default value for `paytxfee` variable to `0.00001` (was `0.00`)
@@ -103,21 +115,21 @@
 #### Class: `bitcoind::install`
   * Reworked logic to ensure that the PPA has been added and `apt-get update` has been run before installing packages
 
-## 1.1.2
+### 1.1.2
 
 ### 2015-02-17 - Bug fix
 
 #### Class: `bitcoind`
   * Added two missing parameters to control the `bitcoind` Service resource - thanks to [Nate Riffe](https://github.com/inkblot) for the [Pull Request](https://github.com/craigwatson/puppet-bitcoind/pull/1)!
 
-##1.1.1
+## 1.1.1
 
 ### 2015-01-22 - Bug fix
 
 #### Template: `init.erb`
   * Moving back up `expect daemon`
 
-##1.1.0
+## 1.1.0
 
 ### 2014-12-30 - Minor feature update
 
@@ -128,14 +140,14 @@
   * Replaced `expect daemon` with `expect fork` and `oom never` with `oom score -500` as per [this StackExchange answer](http://stackoverflow.com/questions/24163172/upstart-script-for-bitcoind-respawn-feature/25731881#25731881)
   * Now uses the --nicelevel switch to pass the nice level of the bitcoind process.
 
-##1.0.1
+## 1.0.1
 
 ### 2014-12-30 - Bug fix
 
 #### Template: `bitcoin.conf.erb`
   * Fixed typo
 
-##1.0.0
+## 1.0.0
 
 ### 2014-12-30 - Major improvements and polish
 
@@ -162,7 +174,7 @@
 #### Template: `init.erb`
   * Adding `datadir` to the script options and using Puppet 3 variable syntax
 
-##0.0.1
+## 0.0.1
 
 ### 2014-12-29 - Initial Release
   * Initial release to the Puppet Forge.

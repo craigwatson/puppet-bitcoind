@@ -17,11 +17,19 @@
 #
 class bitcoind::params {
 
+  if (versioncmp($::lsbdistrelease,'16.04') >= 0) {
+    $init_path     = ''
+    $init_template = 'systemd.erb'
+  } else {
+    $init_path     = '/etc/init/bitcoind'
+    $init_template = 'upstart.erb'
+  }
+
   if $::bitcoind::use_bitcoin_classic {
-    $core_ppa_ensure = absent
+    $core_ppa_ensure    = absent
     $classic_ppa_ensure = present
   } else {
-    $core_ppa_ensure = present
+    $core_ppa_ensure    = present
     $classic_ppa_ensure = absent
   }
 

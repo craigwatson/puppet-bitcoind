@@ -27,13 +27,13 @@ This module can handle the installation of Bitcoin Classic. To use Bitcoin Class
 
 ### Fork Migration
 
-You can also migrate from Bitcoin Core to Classic and vice versa using this module. To do this, the module stops the `bitcoind` service, and removes the `bitcoind` package, before placing the correct PPA and installing the `bitcoind` package again.
+You can also migrate from Bitcoin Core to Classic and vice versa using this module. To do this, the module stops the `bitcoind` service and removes the `bitcoind` package, before placing the correct PPA and installing the `bitcoind` package again.
 
 ## Module Description
 
   * Adds the PPA for Bitcoin Core (`ppa:bitcoin/bitcoin`) or Classic (`ppa:bitcoinclassic/bitcoinclassic`) and installs `bitcoind`
   * Creates a (configurable) system user and group
-  * Places an Upstart init script in `/etc/init`
+  * Places an Upstart init script (Systemd in Ubuntu 16.04 and later)
   * Configures the `bitcoin.conf` configuration file
   * Enables and starts the `bitcoind` daemon/service
 
@@ -71,7 +71,7 @@ To use the Bitcoin Classic fork, specify an RPC user/password and disable wallet
 
 #### `bitcoind::config`
 
-  * Places the `bitcoin.conf` configuration file and Upstart script
+  * Places the `bitcoin.conf` configuration file and init script
 
 #### `bitcoind::install`
 
@@ -89,7 +89,7 @@ To use the Bitcoin Classic fork, specify an RPC user/password and disable wallet
 
 ### Supported Operating Systems
 
-* Ubuntu - 14.04 (Trusty) and 12.04 LTS (Precise)
+* Ubuntu - 16.06 (Xenial), 14.04 (Trusty) and 12.04 LTS (Precise)
 
 ## Development
 
