@@ -8,7 +8,7 @@ Group=<%= scope['bitcoind::group_name'] %>
 
 Type=forking
 PIDFile=<%= scope['bitcoind::params::pidfile'] %>
-ExecStart=<%= scope['bitcoind::bitcoind_cmd'] %> -daemon -pid=<%= scope['bitcoind::params::pidfile'] %> -conf=<%= scope['bitcoind::params::data_dir'] %>/bitcoin.conf -datadir=<%= scope['bitcoind::params::datadir'] %>
+ExecStart=<%= scope['bitcoind::bitcoind_cmd'] %> -daemon -pid=<%= scope['bitcoind::params::pidfile'] %> -conf=<%= scope['bitcoind::params::datadir'] %>/bitcoin.conf -datadir=<%= scope['bitcoind::params::datadir'] %>
 
 Restart=always
 PrivateTmp=true
