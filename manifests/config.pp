@@ -4,7 +4,7 @@
 #
 # == Actions:
 #
-# * Creates the upstart script, data directory and bitcoind configuration file
+# * Creates the init script, data directory and bitcoind configuration file
 #
 # === Authors:
 #
@@ -17,12 +17,12 @@
 #
 class bitcoind::config {
 
-  file { '/etc/init/bitcoind.conf':
+  file { $::bitcoind::params::init_path:
     ensure  => file,
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('bitcoind/init.erb'),
+    content => template("bitcoind/init/${::bitcoind::params::init_template}"),
     require => Package['bitcoind'],
     notify  => Service['bitcoind'],
   }

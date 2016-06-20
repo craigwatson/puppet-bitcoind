@@ -1,0 +1,21 @@
+[Unit]
+Description=Bitcoin's distributed currency daemon
+After=network.target
+
+[Service]
+User=<%= scope['bitcoind::user_name'] %>
+Group=<%= scope['bitcoind::group_name'] %>
+
+Type=forking
+PIDFile=<%= scope['bitcoind::bitcoind_pidfile'] %>
+ExecStart=<%= scope['bitcoind::bitcoind_cmd'] %> -daemon -pid=<%= scope['bitcoind::bitcoind_pidfile'] %> -conf=<%= scope['bitcoind::user_home'] %>/bitcoin.conf -datadir=<%= scope['bitcoind::params::datadir'] %>
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
