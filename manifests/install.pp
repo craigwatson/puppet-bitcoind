@@ -38,7 +38,7 @@ class bitcoind::install {
 
   exec { 'puppet_bitcoind_clean':
     command     => '/bin/rm /usr/bin/bitcoin*',
-
+    unless      => '/bin/ls -1 | grep bitcoin',
     refreshonly => true,
   }
 
@@ -51,7 +51,6 @@ class bitcoind::install {
 
     exec { 'download_bitcoind':
       command => "/usr/bin/wget -qO /tmp/${filename} ${url}",
-      creates => "/tmp/${filename}",
       require => Package['wget'],
       notify  => Exec['uncompress_bitcoind'],
     }
@@ -63,7 +62,7 @@ class bitcoind::install {
     }
 
     exec { 'install_bitcoind':
-      command     => '/bin/mv /tmp/bitcoind-${::bitcoind::download_bitcoind_version}/bin/* /usr/bin/',
+      command     => "/bin/mv /tmp/bitcoind-${::bitcoind::download_bitcoind_version}/bin/* /usr/bin/",
       require     => Exec['puppet_uninstall_bitcoind'],
       refreshonly => true,
     }
