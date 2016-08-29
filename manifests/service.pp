@@ -20,6 +20,6 @@ class bitcoind::service {
   service { 'bitcoind':
     ensure  => $::bitcoind::service_ensure,
     enable  => $::bitcoind::service_enable,
-    require => File[ $::bitcoind::params::init_path],
+    require => File[$::bitcoind::params::init_path],
   }
 }

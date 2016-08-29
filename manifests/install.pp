@@ -52,7 +52,7 @@ class bitcoind::install {
     exec { 'download_bitcoind':
       command => "/usr/bin/wget -qO /tmp/${filename} ${url}",
       require => [Package['wget'],File[$::bitcoind::params::datadir]],
-      unless  => "ls -1 ${::bitcoind::params::datadir} | grep -q download_install.done",
+      unless  => "/bin/ls -1 ${::bitcoind::params::datadir} | grep -q download_install.done",
       notify  => Exec['uncompress_bitcoind'],
     }
 
