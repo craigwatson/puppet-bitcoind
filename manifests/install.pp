@@ -67,7 +67,7 @@ class bitcoind::install {
       command     => "/bin/mv /tmp/bitcoin-${::bitcoind::download_bitcoind_version}/bin/* /usr/bin/",
       require     => Exec['puppet_uninstall_bitcoind'],
       refreshonly => true,
-      notify      => Exec['clean_download_bitcoind'],
+      notify      => Exec['clean_downloaded_bitcoind'],
     }
 
     exec { 'clean_downloaded_bitcoind':
