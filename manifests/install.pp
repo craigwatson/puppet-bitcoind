@@ -44,7 +44,7 @@ class bitcoind::install {
 
   if $::bitcoind::download_bitcoind_version != 'not_set' {
 
-    ensure_package(['wget','gzip'], { ensure => present })
+    ensure_packages(['wget','gzip'], { ensure => present })
 
     $filename = "bitcoin-${::bitcoind::download_bitcoind_version}-${::bitcoind::download_bitcoind_arch}-linux-gnu.tar.gz"
     $url      = "https://bitcoin.org/bin/bitcoin-core-${::bitcoind::download_bitcoind_version}/${filename}"
