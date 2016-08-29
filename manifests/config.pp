@@ -17,13 +17,22 @@
 #
 class bitcoind::config {
 
+  if $::bitcoind::download_bitcoind_version != 'not_set' {
+    File[$::bitcoind::params::init_path] {
+      require => Exec['install_bitcoind'],
+    }
+  } else {
+    File[$::bitcoind::params::init_path] {
+      require => Package['bitcoind'],
+    }
+  }
+
   file { $::bitcoind::params::init_path:
     ensure  => file,
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
     content => template("bitcoind/init/${::bitcoind::params::init_template}"),
-    require => Package['bitcoind'],
     notify  => Service['bitcoind'],
   }
 

@@ -1,16 +1,29 @@
 # Change Log
 
+## 2.1.0
+
+### 2016-08-29 - Minor Release to enable HTTP downloads
+
+#### Class: `bitcoind`
+  * New parameters for `download_bitcoind_version` and `download_bitcoind_arch`
+
+#### Class: `bitcoind::params`
+  * Ensures PPAs are `absent` when HTTP downloads are being used
+
+#### Class: `bitcoind::install`
+  * Logic to handle download/extraction of gzip downloads
+
 ## 2.0.0
 
 ### 2016-06-20 - Major Release to Support Ubuntu 16.04 LTS (Xenial)
 
-### Class: `bitcoind`
+#### Class: `bitcoind`
   * Default parameter change - now placing pidfile
 
-### Class: `bitcoind::params`
+#### Class: `bitcoind::params`
   * Adding logic to handle init script placement for Systemd/Upstart
 
-### Class: `bitcoind::config`
+#### Class: `bitcoind::config`
   * Using `params` variables for init script
 
 ### Class:

@@ -55,6 +55,8 @@ class bitcoind (
   $rpcuser                    = 'bitcoind',
   $upnp                       = true,
   $use_bitcoin_classic        = false,
+  $download_bitcoind_version  = 'not_set',
+  $download_bitcoind_arch     = 'x86_64-linux-gnu',
   $user_name                  = 'bitcoind',
   $user_home                  = '/home/bitcoind',
   $service_ensure             = running,
@@ -110,6 +112,8 @@ class bitcoind (
   validate_string($alertnotify)
   validate_string($bitcoind_datadir)
   validate_string($blocknotify)
+  validate_string($download_bitcoind_version)
+  validate_string($download_bitcoind_arch)
   validate_string($group_name)
   validate_string($minrelaytxfee)
   validate_string($paytxfee)
