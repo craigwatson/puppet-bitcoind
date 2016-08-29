@@ -25,7 +25,10 @@ class bitcoind::params {
     $init_template = 'upstart.erb'
   }
 
-  if $::bitcoind::use_bitcoin_classic {
+  if $::bitcoind::download_bitcoind_version != 'not_set' {
+    $core_ppa_ensure    = absent
+    $classic_ppa_ensure = absent
+  } elsif $::bitcoind::use_bitcoin_classic {
     $core_ppa_ensure    = absent
     $classic_ppa_ensure = present
   } else {
