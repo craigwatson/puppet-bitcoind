@@ -56,7 +56,7 @@ class bitcoind (
   $upnp                       = true,
   $use_bitcoin_classic        = false,
   $download_bitcoind_version  = 'not_set',
-  $download_bitcoind_arch     = 'x64',
+  $download_bitcoind_arch     = 'x86_64-linux-gnu',
   $user_name                  = 'bitcoind',
   $user_home                  = '/home/bitcoind',
   $service_ensure             = running,
