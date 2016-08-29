@@ -22,8 +22,8 @@ GEM
       json_pure
     jgrep (1.4.1)
       json
-    json (2.0.1)
-    json_pure (2.0.1)
+    json (1.8.3)
+    json_pure (1.8.3)
     mcollective-client (2.9.0)
       json
       stomp
@@ -84,8 +84,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  json (= 2.0.1)
-  json_pure (= 2.0.1)
+  json (< 2.0.0)
+  json_pure (< 2.0.0)
   metadata-json-lint
   puppet (~> 3.8.0)
   puppetlabs_spec_helper
