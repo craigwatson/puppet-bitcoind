@@ -57,6 +57,7 @@ class bitcoind::install {
 
     exec { 'uncompress_bitcoind':
       command     => "/bin/tar -xf /tmp/${filename}",
+      cwd         => "/tmp",
       notify      => Exec['install_bitcoind'],
       refreshonly => true,
     }
