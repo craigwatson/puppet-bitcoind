@@ -38,7 +38,7 @@ class bitcoind::install {
 
   exec { 'puppet_bitcoind_clean':
     command     => '/bin/rm /usr/bin/bitcoin*',
-    unless      => '/bin/ls -1 | grep bitcoin',
+    onlyif      => '/bin/ls -1 /usr/bin | grep -q bitcoin',
     refreshonly => true,
   }
 
