@@ -132,11 +132,4 @@ class bitcoind (
   include ::bitcoind::config
   include ::bitcoind::service
 
-  # Class dependencies
-  Class['::bitcoind::params'] ->
-  Class['::bitcoind::account'] ->
-  Class['::bitcoind::install'] ->
-  Class['::bitcoind::config'] ->
-  Class['::bitcoind::service']
-
 }

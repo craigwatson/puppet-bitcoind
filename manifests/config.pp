@@ -19,7 +19,7 @@ class bitcoind::config {
 
   if $::bitcoind::download_bitcoind_version != 'not_set' {
     File[$::bitcoind::params::init_path] {
-      require => Exec['install_bitcoind'],
+      require => Exec['clean_downloaded_bitcoind'],
     }
   } else {
     File[$::bitcoind::params::init_path] {
