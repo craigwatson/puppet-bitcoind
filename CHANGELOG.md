@@ -2,7 +2,7 @@
 
 ## 2.0.0
 
-### TBD - Major Release to Support Ubuntu 16.04 LTS (Xenial) and HTTP downloads
+### 2016-12-23 - Major Release to Support Ubuntu 16.04 LTS (Xenial) and HTTP downloads
 
 #### Class: `bitcoind`
   * Default parameter change - now placing pidfile
