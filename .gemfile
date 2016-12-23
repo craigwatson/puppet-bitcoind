@@ -1,12 +1,24 @@
-source ENV['GEM_SOURCE'] || "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "rake"
-gem "puppet", ENV['PUPPET_GEM_VERSION'] || '~> 3.8.0'
-gem "rspec", '< 3.2.0'
-gem "rspec-puppet", :git => 'https://github.com/rodjek/rspec-puppet.git'
-gem "puppetlabs_spec_helper"
-gem "metadata-json-lint"
-gem "rspec-puppet-facts"
-gem 'rubocop', '0.33.0'
-gem 'json_pure', '< 2.0.0'
-gem 'json', '< 2.0.0'
+group :test do
+  gem "rake"
+  gem "puppet", ENV['PUPPET_VERSION'] || '~> 3.8.7'
+  gem 'safe_yaml', '~> 1.0.4'
+  gem "puppet-lint", '2.0.2'
+  gem "rspec-puppet", :git => 'https://github.com/rodjek/rspec-puppet.git'
+  gem "puppet-syntax"
+  gem "puppetlabs_spec_helper"
+  gem 'json_pure', '< 2.0.0'
+  gem 'json', '< 2.0.0'
+end
+
+group :development do
+  gem "travis"
+  gem "travis-lint"
+  gem "beaker"
+  gem "beaker-rspec"
+  gem "vagrant-wrapper"
+  gem "puppet-blacksmith"
+  gem "guard-rake"
+end
+
