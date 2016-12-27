@@ -77,7 +77,7 @@ class bitcoind (
   }
 
   if $rpcallowip != 'not_set' {
-    validate_array($rpcallowip)
+    validate_legacy('Stdlib::Compat::Array', 'validate_array', $rpcallowip)
   }
 
   if $connect != 'not_set' and $addnode != 'not_set' {
@@ -85,19 +85,19 @@ class bitcoind (
   }
 
   if $connect != 'not_set' {
-    validate_array($connect)
+    validate_legacy('Stdlib::Compat::Array', 'validate_array', $connect)
   }
 
   if $addnode != 'not_set' {
-    validate_array($addnode)
+    validate_legacy('Stdlib::Compat::Array', 'validate_array', $addnode)
   }
 
   if $bitcoind_pidfile != 'not_set' {
-    validate_absolute_path($bitcoind_pidfile)
+    validate_legacy('Stdlib::Compat::Absolute_Path', 'validate_absolute_path', $bitcoind_pidfile)
   }
 
-  validate_absolute_path($bitcoind_cmd)
-  validate_absolute_path($user_home)
+  validate_legacy('Stdlib::Compat::Absolute_Path', 'validate_absolute_path', $bitcoind_cmd)
+  validate_legacy('Stdlib::Compat::Absolute_Path', 'validate_absolute_path', $user_home)
 
   validate_bool($allowreceivebyip)
   validate_bool($disablewallet)
