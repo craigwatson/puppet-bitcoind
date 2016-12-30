@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.0.2
+
+### 2016-12-30 - Bugfix Release
+
+#### Class: `bitcoind`
+  * Fixing more stdlib deprecation warnings
+
 ## 2.0.1
 
 ### 2016-12-30 - Bug Fix release
