@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.0.1
+
+### 2016-12-30 - Bug Fix release
+
+#### Class: `bitcoind`
+  * Fixing stdlib deprecation warnings using validate_legacy
+
 ## 2.0.0
 
 ### 2016-12-23 - Major Release to Support Ubuntu 16.04 LTS (Xenial) and HTTP downloads
