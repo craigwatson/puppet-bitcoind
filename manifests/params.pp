@@ -36,13 +36,13 @@ class bitcoind::params {
     $classic_ppa_ensure = absent
   }
 
-  if $::bitcoind::bitcoind_datadir != 'not_set' {
+  if $::bitcoind::bitcoind_datadir != undef {
     $datadir = $::bitcoind::bitcoind_datadir
   } else {
     $datadir = "${bitcoind::user_home}/.bitcoin"
   }
 
-  if $::bitcoind::bitcoind_pidfile != 'not_set' {
+  if $::bitcoind::bitcoind_pidfile != undef {
     $pidfile = $::bitcoind::bitcoind_pidfile
   } else {
     $pidfile = "${::bitcoind::params::datadir}/bitcoind.pid"

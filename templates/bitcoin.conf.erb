@@ -3,19 +3,19 @@
 # Managed by puppet - DO NOT modify locally.
 ############################################
 
-<%- if scope['::bitcoind::addnode'] != 'not_set' -%>
+<%- if scope['::bitcoind::addnode'] != :undef -%>
 <%- scope['::bitcoind::addnode'].each do |addnode_ip| -%>
 addnode=<%= addnode_ip %>
 <%- end -%>
 <%- end -%>
-<%- if scope['::bitcoind::alertnotify'] != 'not_set' -%>
+<%- if scope['::bitcoind::alertnotify'] != :undef -%>
 alertnotify=<%= scope['::bitcoind::alertnotify'] %>
 <%- end -%>
 allowreceivebyip=<%= scope['::bitcoind::params::allowreceivebyip'] %>
-<%- if scope['::bitcoind::blocknotify'] != 'not_set' -%>
+<%- if scope['::bitcoind::blocknotify'] != :undef -%>
 blocknotify=<%= scope['::bitcoind::blocknotify'] %>
 <%- end -%>
-<%- if scope['::bitcoind::connect'] != 'not_set' -%>
+<%- if scope['::bitcoind::connect'] != :undef -%>
 <%- scope['::bitcoind::connect'].each do |connect_ip| -%>
 connect=<%= connect_ip %>
 <%- end -%>
@@ -28,23 +28,23 @@ keypool=<%= scope['::bitcoind::keypool'] %>
 limitfreerelay=<%= scope['::bitcoind::limitfreerelay'] %>
 <%- end -%>
 maxconnections=<%= scope['::bitcoind::maxconnections'] %>
-<%- if scope['::bitcoind::maxuploadtarget'] != 'not_set' -%>
+<%- if scope['::bitcoind::maxuploadtarget'] != :undef -%>
 maxuploadtarget=<%= scope['::bitcoind::maxuploadtarget'] %>
 <%- end -%>
-<%- if scope['::bitcoind::minrelaytxfee'] != 'not_set' -%>
+<%- if scope['::bitcoind::minrelaytxfee'] != :undef -%>
 minrelaytxfee=<%= scope['::bitcoind::minrelaytxfee'] %>
 <%- end -%>
 paytxfee=<%= scope['::bitcoind::paytxfee'] %>
 peerbloomfilters=<%= scope['::bitcoind::params::peerbloomfilters'] %>
-<%- if scope['::bitcoind::proxy'] != 'not_set' -%>
+<%- if scope['::bitcoind::proxy'] != :undef -%>
 proxy=<%= scope['::bitcoind::proxy'] %>
 <% end -%>
-<%- if scope['::bitcoind::rpcallowip'] != 'not_set' -%>
+<%- if scope['::bitcoind::rpcallowip'] != :undef -%>
 <%- scope['::bitcoind::rpcallowip'].each do |allow_ip| -%>
 rpcallowip=<%= allow_ip %>
 <%- end -%>
 <%- end -%>
-<%- if scope['::bitcoind::rpcconnect'] != 'not_set' -%>
+<%- if scope['::bitcoind::rpcconnect'] != :undef -%>
 rpcconnect=<%= scope['::bitcoind::rpcconnect'] %>
 <% end -%>
 rpcpassword=<%= scope['::bitcoind::rpcpassword'] %>

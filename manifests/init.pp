@@ -17,50 +17,50 @@
 # Published under the Apache License v2.0
 #
 class bitcoind (
-  $addnode                    = 'not_set',
-  $allowreceivebyip           = true,
-  $alertnotify                = 'not_set',
-  $bitcoind_cmd               = '/usr/bin/bitcoind',
-  $bitcoind_datadir           = 'not_set',
-  $bitcoind_nicelevel         = 0,
-  $bitcoind_pidfile           = 'not_set',
-  $blocknotify                = 'not_set',
-  $connect                    = 'not_set',
-  $disablewallet              = false,
-  $dbcache                    = 100,
-  $gen                        = false,
-  $group_name                 = 'bitcoind',
-  $install_gui                = false,
-  $keypool                    = 100,
-  $limitfreerelay             = 15,
-  $minrelaytxfee              = 'not_set',
-  $maxconnections             = 125,
-  $maxuploadtarget            = 'not_set',
-  $paytxfee                   = '0.00005',
-  $peerbloomfilters           = true,
-  $proxy                      = 'not_set',
-  $server                     = true,
-  $testnet                    = false,
-  $timeout                    = '5000',
-  $txindex                    = false,
-  $rpcallowip                 = 'not_set',
-  $rpcconnect                 = 'not_set',
-  $rpcpassword                = 'EL5dW6NLpt3A8eeE2KBA9TcFyyVbNvhXfXNBpdB7Rcey',
-  $rpcport                    = '8332',
-  $rpcssl                     = false,
-  $rpcsslcertificatechainfile = 'server.cert',
-  $rpcsslciphers              = 'TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!AH:!3DES:@STRENGTH',
-  $rpcsslprivatekeyfile       = 'server.pem',
-  $rpctimeout                 = '30',
-  $rpcuser                    = 'bitcoind',
-  $upnp                       = true,
-  $use_bitcoin_classic        = false,
-  $download_bitcoind_version  = 'not_set',
-  $download_bitcoind_arch     = 'x86_64-linux-gnu',
-  $user_name                  = 'bitcoind',
-  $user_home                  = '/home/bitcoind',
-  $service_ensure             = running,
-  $service_enable             = true,
+  Variant[Undef,Array]   $addnode                    = undef,
+  Boolean                $allowreceivebyip           = true,
+  Variant[Undef,String]  $alertnotify                = undef,
+  String                 $bitcoind_cmd               = '/usr/bin/bitcoind',
+  Variant[Undef,String]  $bitcoind_datadir           = undef,
+  Integer                $bitcoind_nicelevel         = 0,
+  Variant[Undef,String]  $bitcoind_pidfile           = undef,
+  Variant[Undef,String]  $blocknotify                = 'not_set',
+  Variant[Undef,Array]   $connect                    = undef,
+  Boolean                $disablewallet              = false,
+  Integer                $dbcache                    = 100,
+  Boolean                $gen                        = false,
+  String                 $group_name                 = 'bitcoind',
+  Boolean                $install_gui                = false,
+  Integer                $keypool                    = 100,
+  Integer                $limitfreerelay             = 15,
+  Variant[Undef,String]  $minrelaytxfee              = undef,
+  Integer                $maxconnections             = 125,
+  Variant[Undef,String]  $maxuploadtarget            = undef,
+  String                 $paytxfee                   = '0.00005',
+  Boolean                $peerbloomfilters           = true,
+  Variant[Undef,String]  $proxy                      = undef,
+  Boolean                $server                     = true,
+  Boolean                $testnet                    = false,
+  Integer                $timeout                    = 5000,
+  Boolean                $txindex                    = false,
+  Variant[Undef,Array]   $rpcallowip                 = undef,
+  Variant[Undef,String]  $rpcconnect                 = undef,
+  String                 $rpcpassword                = 'EL5dW6NLpt3A8eeE2KBA9TcFyyVbNvhXfXNBpdB7Rcey',
+  Integer                $rpcport                    = 8332,
+  Boolean                $rpcssl                     = false,
+  String                 $rpcsslcertificatechainfile = 'server.cert',
+  String                 $rpcsslciphers              = 'TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!AH:!3DES:@STRENGTH',
+  String                 $rpcsslprivatekeyfile       = 'server.pem',
+  Integer                $rpctimeout                 = 30,
+  String                 $rpcuser                    = 'bitcoind',
+  Boolean                $upnp                       = true,
+  Boolean                $use_bitcoin_classic        = false,
+  Variant[Undef,String]  $download_bitcoind_version  = undef,
+  String                 $download_bitcoind_arch     = 'x86_64-linux-gnu',
+  String                 $user_name                  = 'bitcoind',
+  String                 $user_home                  = '/home/bitcoind',
+  String                 $service_ensure             = 'running',
+  Boolean                $service_enable             = true,
 ){
 
   # Hard-fail on anything that isn't Ubuntu
@@ -76,54 +76,9 @@ class bitcoind (
     }
   }
 
-  if $rpcallowip != 'not_set' {
-    validate_legacy('Stdlib::Compat::Array', 'validate_array', $rpcallowip)
-  }
-
-  if $connect != 'not_set' and $addnode != 'not_set' {
+  if $connect != undef and $addnode != undef {
     fail('Can only use one of $connect and $allowip')
   }
-
-  if $connect != 'not_set' {
-    validate_legacy('Stdlib::Compat::Array', 'validate_array', $connect)
-  }
-
-  if $addnode != 'not_set' {
-    validate_legacy('Stdlib::Compat::Array', 'validate_array', $addnode)
-  }
-
-  if $bitcoind_pidfile != 'not_set' {
-    validate_legacy('Stdlib::Compat::Absolute_Path', 'validate_absolute_path', $bitcoind_pidfile)
-  }
-
-  validate_legacy('Stdlib::Compat::Absolute_Path', 'validate_absolute_path', $bitcoind_cmd)
-  validate_legacy('Stdlib::Compat::Absolute_Path', 'validate_absolute_path', $user_home)
-
-  validate_legacy('Stdlib::Compat::Bool', 'validate_bool', $allowreceivebyip)
-  validate_legacy('Stdlib::Compat::Bool', 'validate_bool', $disablewallet)
-  validate_legacy('Stdlib::Compat::Bool', 'validate_bool', $gen)
-  validate_legacy('Stdlib::Compat::Bool', 'validate_bool', $install_gui)
-  validate_legacy('Stdlib::Compat::Bool', 'validate_bool', $testnet)
-  validate_legacy('Stdlib::Compat::Bool', 'validate_bool', $txindex)
-  validate_legacy('Stdlib::Compat::Bool', 'validate_bool', $rpcssl)
-  validate_legacy('Stdlib::Compat::Bool', 'validate_bool', $upnp)
-  validate_legacy('Stdlib::Compat::Bool', 'validate_bool', $use_bitcoin_classic)
-
-  validate_legacy('Stdlib::Compat::String', 'validate_string', $alertnotify)
-  validate_legacy('Stdlib::Compat::String', 'validate_string', $bitcoind_datadir)
-  validate_legacy('Stdlib::Compat::String', 'validate_string', $blocknotify)
-  validate_legacy('Stdlib::Compat::String', 'validate_string', $download_bitcoind_version)
-  validate_legacy('Stdlib::Compat::String', 'validate_string', $download_bitcoind_arch)
-  validate_legacy('Stdlib::Compat::String', 'validate_string', $group_name)
-  validate_legacy('Stdlib::Compat::String', 'validate_string', $minrelaytxfee)
-  validate_legacy('Stdlib::Compat::String', 'validate_string', $paytxfee)
-  validate_legacy('Stdlib::Compat::String', 'validate_string', $proxy)
-  validate_legacy('Stdlib::Compat::String', 'validate_string', $rpcpassword)
-  validate_legacy('Stdlib::Compat::String', 'validate_string', $rpcsslcertificatechainfile)
-  validate_legacy('Stdlib::Compat::String', 'validate_string', $rpcsslciphers)
-  validate_legacy('Stdlib::Compat::String', 'validate_string', $rpcsslprivatekeyfile)
-  validate_legacy('Stdlib::Compat::String', 'validate_string', $rpcuser)
-  validate_legacy('Stdlib::Compat::String', 'validate_string', $user_name)
 
   # Include all subclasses
   include ::bitcoind::params

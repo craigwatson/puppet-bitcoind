@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.0.0
+
+### TBC - Major Version Release
+
+#### Puppet 3 Support Removed
+  * This module no longer supports Puppet 3. If you require Puppet 3 functionality, please use version [1.0.4 from the Puppet Forge](https://forge.puppet.com/CraigWatson1987/bitcoind/readme), or the [puppet3](https://github.com/craigwatson/puppet-bitcoind/tree/puppet3) branch in Git.
+
 ## 2.0.2
 
 ### 2016-12-30 - Bugfix Release

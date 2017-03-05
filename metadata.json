@@ -1,21 +1,21 @@
 {
-  "name": "CraigWatson1987-bitcoind",
-  "version": "2.0.2",
-  "author": "Craig Watson",
-  "summary": "Manage installation and configuration of the Bitcoin daemon.",
-  "license": "Apache-2.0",
-  "source": "git://github.com/craigwatson/puppet-bitcoind.git",
-  "project_page": "https://github.com/craigwatson/puppet-bitcoind",
-  "issues_url": "https://github.com/craigwatson/puppet-bitcoind/issues",
-  "tags": [ "bitcoin daemon","bitcoin","bitcoind"],
-  "dependencies": [
-    { "name": "puppetlabs/stdlib", "version_requirement": ">=3.2.0 <5.0.0" },
-    { "name": "puppetlabs/apt", "version_requirement": ">=1.2.0" }
+  "name"                    : "CraigWatson1987-bitcoind",
+  "version"                 : "3.0.0",
+  "author"                  : "Craig Watson",
+  "summary"                 : "Manage installation and configuration of the Bitcoin daemon.",
+  "license"                 : "Apache-2.0",
+  "source"                  : "git://github.com/craigwatson/puppet-transmission.git",
+  "project_page"            : "https://github.com/craigwatson/puppet-bitcoind",
+  "issues_url"              : "https://github.com/craigwatson/puppet-bitcoind/issues",
+  "description"             : "Manage installation and configuration of the Bitcoin daemon.",
+  "tags"                    : ["bitcoin daemon","bitcoin","bitcoind"],
+  "dependencies"            : [
+    { "name": "puppetlabs/apt", "version_requirement": ">=2.2.0" }
   ],
-  "operatingsystem_support": [
-    {
-      "operatingsystem": "Ubuntu",
-      "operatingsystemrelease": [ "16.04","15.10","15.04","14.10","14.04","13.10","13.04","12.10","12.04"]
-    }
+  "requirements"            : [
+    { "name": "puppet", "version_requirement": ">=4.6.1 <5.0.0" }
+  ],
+  "operatingsystem_support" : [
+    { "operatingsystem": "Ubuntu", "operatingsystemrelease": [ "16.04","15.10","15.04","14.10","14.04","13.10","13.04","12.10","12.04"] }
   ]
 }
