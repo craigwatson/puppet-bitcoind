@@ -24,7 +24,7 @@ class bitcoind (
   Variant[Undef,String]  $bitcoind_datadir           = undef,
   Integer                $bitcoind_nicelevel         = 0,
   Variant[Undef,String]  $bitcoind_pidfile           = undef,
-  Variant[Undef,String]  $blocknotify                = 'not_set',
+  Variant[Undef,String]  $blocknotify                = undef,
   Variant[Undef,Array]   $connect                    = undef,
   Boolean                $disablewallet              = false,
   Integer                $dbcache                    = 100,
