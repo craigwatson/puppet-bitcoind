@@ -31,7 +31,7 @@ If you require Puppet 3 compatibility, please use version [2.0.2 from the Puppet
 
 ### Bitcoin Classic
 
-This module can handle the installation of Bitcoin Classic. To use Bitcoin Classic over Bitcoin Core, simply set the `use_bitcoin_classic` parameter to `true` - the default is to install Bitcoin **Core**.
+This module can handle the installation of Bitcoin Classic. To use Bitcoin Classic over Bitcoin Core, simply set the `use_bitcoin_classic` parameter to `true` - the default is to install Bitcoin Core.
 
 ### Fork Migration
 
@@ -98,6 +98,10 @@ To use the Bitcoin Classic fork, specify an RPC user/password and disable wallet
 ### Supported Operating Systems
 
 * Ubuntu - 16.06 (Xenial), 14.04 (Trusty) and 12.04 LTS (Precise)
+
+### Donations
+
+Donations are welcomed via Bitcoin to 1JJ5STJpzyDbvNiStqsfycCuoNFPgWd2Ho
 
 ## Development
 
