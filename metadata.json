@@ -1,6 +1,6 @@
 {
   "name"                    : "CraigWatson1987-bitcoind",
-  "version"                 : "3.0.0",
+  "version"                 : "3.0.1",
   "author"                  : "Craig Watson",
   "summary"                 : "Manage installation and configuration of the Bitcoin daemon.",
   "license"                 : "Apache-2.0",

@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.0.1
+
+### 2017-04-27 - Bugfix Release
+
+#### Class: `bitcoind::params`
+  * Fixing check on `$::bitcoind::download_bitcoind_version` to use `undef` rather than `not_set` string.
+
 ## 3.0.0
 
 ### TBC - Major Version Release
