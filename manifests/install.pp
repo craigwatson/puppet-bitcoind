@@ -42,7 +42,7 @@ class bitcoind::install {
     refreshonly => true,
   }
 
-  if $::bitcoind::download_bitcoind_version != 'not_set' {
+  if $::bitcoind::download_bitcoind_version != undef {
 
     ensure_packages(['wget','gzip'], { ensure => present })
 

@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.0.2
+
+### 2017-04-27 - Bugfix Release
+
+#### Classes: `bitcoind::config` and `bitcoind::install`
+  * Fixing another instance of checking against a `not_set` string.
+
 ## 3.0.1
 
 ### 2017-04-27 - Bugfix Release
