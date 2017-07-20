@@ -26,14 +26,9 @@ class bitcoind::params {
   }
 
   if $::bitcoind::download_bitcoind_version != undef {
-    $core_ppa_ensure    = absent
-    $classic_ppa_ensure = absent
-  } elsif $::bitcoind::use_bitcoin_classic {
-    $core_ppa_ensure    = absent
-    $classic_ppa_ensure = present
+    $ppa_ensure = absent
   } else {
-    $core_ppa_ensure    = present
-    $classic_ppa_ensure = absent
+    $ppa_ensure = present
   }
 
   if $::bitcoind::bitcoind_datadir != undef {

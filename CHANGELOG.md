@@ -1,5 +1,18 @@
 # Change Log
 
+## 3.1.0
+
+### TBC - Feature Release
+
+#### Class: `bitcoind`
+  * Added new parameters `ppa_name` and `package_name` to simplify installation
+
+#### Class: `bitcoind::install`
+  * Using a single `apt::ppa` resource
+
+#### Class: `bitcoind::params`
+  * Refactor to remove references to Bitcoin Classic
+
 ## 3.0.2
 
 ### 2017-04-27 - Bugfix Release

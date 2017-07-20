@@ -6,7 +6,6 @@
 #### Table of Contents
 
 1. [Overview - What is the puppet-bitcoind module?](#overview)
-  * [Bitcoin Classic](#bitcoin-classic)
 1. [Module Description - What does the module do?](#module-description)
 1. [Setup - The basics of getting started with puppet-bitcoind](#setup)
     * [What puppet-bitcoind affects](#what-puppet-bitcoind-affects)
@@ -29,17 +28,13 @@ On 31st December 2016, support for Puppet 3.x was withdrawn. As such, this modul
 
 If you require Puppet 3 compatibility, please use version [2.0.2 from the Puppet Forge](https://forge.puppet.com/CraigWatson1987/bitcoind/readme), or the [puppet3](https://github.com/craigwatson/puppet-bitcoind/tree/puppet3) branch in Git.
 
-### Bitcoin Classic
+### Using Alternative Repositories
 
-This module can handle the installation of Bitcoin Classic. To use Bitcoin Classic over Bitcoin Core, simply set the `use_bitcoin_classic` parameter to `true` - the default is to install Bitcoin Core.
-
-### Fork Migration
-
-You can also migrate from Bitcoin Core to Classic and vice versa using this module. To do this, the module stops the `bitcoind` service and removes the `bitcoind` package, before placing the correct PPA and installing the `bitcoind` package again.
+This module can handle the installation of the Bitcoin daemon from any Ubuntu PPA repository. To use a third-party repository (e.g. Bitcoin Classic or UASF), simply set the `ppa_name` and `package_name` parameters - the default is to install Bitcoin Core from the official PPA.
 
 ## Module Description
 
-  * Adds the PPA for Bitcoin Core (`ppa:bitcoin/bitcoin`) or Classic (`ppa:bitcoinclassic/bitcoinclassic`) and installs `bitcoind`
+  * Adds the requested PPA (see above) and installs `bitcoind`
   * Creates a (configurable) system user and group
   * Places an Upstart init script (Systemd in Ubuntu 16.04 and later)
   * Configures the `bitcoin.conf` configuration file
@@ -55,14 +50,15 @@ To accept default class parameters (correct in most situations):
 
 ## Usage
 
-To use the Bitcoin Classic fork, specify an RPC user/password and disable wallet functionality:
+To use the an alternative Ubuntu PPA repository, specify an RPC user/password and disable wallet functionality:
 
     class { 'bitcoind':
       disablewallet              => true,
       rpcallowip                 => ['123.456.789.100'],
       rpcuser                    => 'oliver'
       rpcpassword                => 'youvegottopickapocketortwo',
-      use_bitcoin_classic        => true,
+      ppa_name                   => 'luke-jr/bitcoin-core-bip148-unofficial-builds',
+      package_name               => 'bitcoin',
     }
 
 ## Reference
@@ -83,7 +79,7 @@ To use the Bitcoin Classic fork, specify an RPC user/password and disable wallet
 
 #### `bitcoind::install`
 
-  * Adds the Bitcoin Core or Bitcoin Classic Apt PPA to the system
+  * Optionally adds the requested PPA to the system
   * Installs the bitcoind package
   * Optionally installs the bitcoin-qt package
 

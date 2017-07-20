@@ -4,7 +4,7 @@
 #
 # == Actions:
 #
-# * Adds the Bitcoin or Bitcoin Classic Apt PPA to the system
+# * Adds the Apt PPA to the system
 # * Installs the bitcoind package
 # * Optionally installs the bitcoin-qt package
 #
@@ -19,18 +19,13 @@
 #
 class bitcoind::install {
 
-  apt::ppa { 'ppa:bitcoinclassic/bitcoinclassic':
-    ensure => $::bitcoind::params::classic_ppa_ensure,
-    notify => Exec['puppet_uninstall_bitcoind'],
-  }
-
-  apt::ppa { 'ppa:bitcoin/bitcoin':
-    ensure => $::bitcoind::params::core_ppa_ensure,
+  ::apt::ppa { "ppa:${::bitcoind::ppa_name}":
+    ensure => $::bitcoind::params::ppa_ensure,
     notify => Exec['puppet_uninstall_bitcoind'],
   }
 
   exec { 'puppet_uninstall_bitcoind':
-    command     => 'puppet resource service bitcoind ensure=stopped;puppet resource package bitcoind ensure=absent',
+    command     => "puppet resource service bitcoind ensure=stopped;puppet resource package bitcoind ensure=absent; puppet resource package ${::bitcoind::package_name} ensure=absent",
     path        => ['/bin/','/sbin/','/usr/bin/','/usr/sbin/','/usr/local/bin/','/opt/puppetlabs/bin/'],
     notify      => Exec['puppet_bitcoind_clean'],
     refreshonly => true,
@@ -87,7 +82,7 @@ class bitcoind::install {
       before => Exec['apt_update'],
     }
 
-    package { 'bitcoind':
+    package { $::bitcoind::package_name:
       ensure  => present,
       require => Exec['apt_update'],
     }
