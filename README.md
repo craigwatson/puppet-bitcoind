@@ -53,12 +53,12 @@ To accept default class parameters (correct in most situations):
 To use the an alternative Ubuntu PPA repository, specify an RPC user/password and disable wallet functionality:
 
     class { 'bitcoind':
-      disablewallet              => true,
-      rpcallowip                 => ['123.456.789.100'],
-      rpcuser                    => 'oliver'
-      rpcpassword                => 'youvegottopickapocketortwo',
-      ppa_name                   => 'luke-jr/bitcoin-core-bip148-unofficial-builds',
-      package_name               => 'bitcoin',
+      disablewallet => true,
+      rpcallowip    => ['123.456.789.100'],
+      rpcuser       => 'oliver'
+      rpcpassword   => 'youvegottopickapocketortwo',
+      ppa_name      => 'luke-jr/bitcoin-core-bip148-unofficial-builds',
+      package_name  => 'bitcoin',
     }
 
 ## Reference
