@@ -23,7 +23,7 @@ class bitcoind::config {
     }
   } else {
     File[$::bitcoind::params::init_path] {
-      require => Package['bitcoind'],
+      require => Package[$::bitcoind::package_name],
     }
   }
 
