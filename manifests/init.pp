@@ -65,7 +65,7 @@ class bitcoind (
 ){
 
   # Hard-fail on anything that isn't Ubuntu
-  if $::operatingsystem != 'Ubuntu' {
+  if $facts['os']['name'] != 'Ubuntu' {
     fail('Unsupported operating system')
   }
 

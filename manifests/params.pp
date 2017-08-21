@@ -17,7 +17,7 @@
 #
 class bitcoind::params {
 
-  if (versioncmp($::lsbdistrelease,'16.04') >= 0) {
+  if (versioncmp($facts['os']['release']['major'],'16.04') >= 0) {
     $init_path     = '/etc/systemd/system/bitcoind.service'
     $init_template = 'systemd.erb'
   } else {
