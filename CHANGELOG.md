@@ -2,7 +2,7 @@
 
 ## 3.1.0
 
-### TBC - Feature Release
+### 2017-09-01 - Feature Release
 
 #### Class: `bitcoind`
   * Added new parameters `ppa_name` and `package_name` to simplify installation
